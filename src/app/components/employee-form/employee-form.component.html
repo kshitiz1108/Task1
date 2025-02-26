@@ -1,0 +1,60 @@
+<form [formGroup]="employeeform" (ngSubmit)="onSubmit()" class="employee-form">
+    <mat-card class="mat-card">
+      <mat-card-header>
+        <mat-card-title class="title">Employee Details</mat-card-title>
+      </mat-card-header>
+  
+      <mat-card-content>
+        <div class="form-container">
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name" type="text" required>
+            <mat-error>Name is required</mat-error>
+          </mat-form-field>
+  
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" type="email" required>
+            <mat-error>Put email in correct format</mat-error>
+          </mat-form-field>
+  
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Department</mat-label>
+            <mat-select formControlName="department" required>
+                @for (item of departmentlist; track $index) {
+                    <mat-option value="{{departmentlist[$index].name}}" >
+                        {{ departmentlist[$index].name }}
+                      </mat-option>
+                }
+              
+            </mat-select>
+            <mat-error>Please enter the department</mat-error>
+          </mat-form-field>
+  
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Date of Joining</mat-label>
+            <input matInput formControlName="dateOfJoining" type="date" required>
+            <mat-error>Date of joining is required</mat-error>
+          </mat-form-field>
+  
+         
+          <mat-slider min="1000" max="500000" step="5000" showTickMarks discrete >
+            <input matInput formControlName="salary" matSliderThumb value="1">
+          </mat-slider>
+          
+          
+        </div>
+      </mat-card-content>
+  
+      <mat-card-actions>
+        <button mat-raised-button color="primary" type="submit">Submit</button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+  
+  <div>
+    <h3>Submitted Employee Details:</h3>
+    <pre>{{ employeedetails | json }}</pre>
+  </div>
+
+  

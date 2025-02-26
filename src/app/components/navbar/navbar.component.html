@@ -1,0 +1,44 @@
+<mat-toolbar color="primary">
+  <span style="display: flex; align-items: center; flex: 1;">
+    <mat-form-field  style="width: 250px; margin-right: 15px;">
+      <input
+        matInput
+        placeholder="Search"
+        [(ngModel)]="SearchText"
+        (click)="onSearch()"
+        [ngStyle]="{
+          'border-radius': '20px',
+          'box-shadow': '0 4px 6px rgba(0, 0, 0, 0.1)',
+          'font-size': '14px'
+        }"
+      >
+    </mat-form-field>
+
+    <button
+      mat-raised-button
+      color="accent"
+      (click)="onSearch()"
+      [ngStyle]="buttonStyle"
+      style=" display: flex; align-items: center; justify-content: center;"
+      (mouseover)="onButtonHover(true)"
+      (mouseleave)="onButtonHover(false)"
+    >
+      <mat-icon>search</mat-icon>
+      <span style="margin-left: 8px;">Search</span>
+    </button>
+  </span>
+
+  <div class="left-side" style="display: flex; align-items: center;">
+    <button mat-icon-button aria-label="Add" (click)="employeeform()">
+      <mat-icon>add</mat-icon>
+    </button>
+
+    <button mat-icon-button (click)="gohome()">
+      <mat-icon>home</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>
+
+<div style="margin-top: 20px;">
+  <app-employee-list *ngIf="currentUrl === '/'" [employeeList]="filteredEmployeeList"></app-employee-list>
+</div>

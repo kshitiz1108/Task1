@@ -1,0 +1,66 @@
+{
+  "employees": [
+    {
+      "name": "Kshitiz Gupta",
+      "email": "gkshitiz468@gmail.com",
+      "department": "Engineering",
+      "dateOfJoining": "2025-02-06",
+      "salary": "25003",
+      "id": "1f50"
+    },
+    {
+      "name": "Netcore",
+      "email": "netcore@gmail.com",
+      "department": "Product",
+      "dateOfJoining": "2025-02-07",
+      "salary": 56000,
+      "id": "0a33"
+    },
+    {
+      "name": "Kshitiz",
+      "email": "test@gmail.com",
+      "department": "Product",
+      "dateOfJoining": "2025-02-20",
+      "salary": 41000,
+      "id": "5e5f"
+    },
+    {
+      "id": "24bf",
+      "name": "Yash",
+      "email": "yash@gmail.com",
+      "department": "Design",
+      "dateOfJoining": "2025-02-13",
+      "salary": 16000
+    },
+    {
+      "id": "6813",
+      "name": "Yash",
+      "email": "yash@gmail.com",
+      "department": "Product",
+      "dateOfJoining": "2025-02-15",
+      "salary": 56000
+    }
+  ],
+  "departments": [
+    {
+      "id": "1",
+      "name": "Engineering"
+    },
+    {
+      "id": "2",
+      "name": "Product"
+    },
+    {
+      "id": "3",
+      "name": "Design"
+    },
+    {
+      "id": "4",
+      "name": "HR"
+    },
+    {
+      "id": "5",
+      "name": "Sales"
+    }
+  ]
+}

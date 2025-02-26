@@ -1,0 +1,73 @@
+/* Container for the table */
+.employee-list-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Table Title Styling */
+  .table-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Styling for Material Table */
+  .table-container {
+    overflow-x: auto;
+  }
+  
+  mat-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  mat-header-cell, mat-cell {
+    padding: 16px;
+    text-align: left;
+  }
+  
+  mat-header-cell {
+    background-color: #1976d2;
+    color: white;
+    font-weight: bold;
+  }
+  
+  mat-row {
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  mat-row:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .action-buttons {
+    margin-top: 8px;
+  }
+  
+  button {
+    margin-right: 10px;
+  }
+  
+  /* Add spacing to action buttons */
+  mat-icon {
+    color: #1976d2;
+    font-size: 24px;
+  }
+  
+  mat-icon-button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+  }
+  
+  mat-paginator {
+    margin-top: 20px;
+  }
+  
+.mat-icon-button {
+  padding: 4px;
+  font-size: 20px;
+}

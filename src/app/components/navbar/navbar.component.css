@@ -1,0 +1,93 @@
+
+mat-toolbar {
+  background-color: #3f51b5;
+  color: white;
+  padding: 10px 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+span {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+
+mat-form-field {
+  width: 250px;
+  margin-right: 15px;
+  border-radius: 25px;
+}
+
+mat-form-field input {
+  padding: 10px 15px;
+  font-size: 14px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+mat-form-field input:focus {
+  outline: none;
+  border-color: #ff4081; 
+  box-shadow: 0 4px 8px rgba(255, 64, 129, 0.4);
+}
+
+button {
+  border-radius: 25px;
+  padding: 8px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #ff4081; 
+  transform: translateY(-2px);
+}
+
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #ff4081;
+}
+
+mat-icon {
+  color: white;
+}
+
+button span {
+  color: white;
+  font-weight: bold;
+  margin-left: 8px;
+  font-size: 14px;
+}
+
+.left-side {
+  display: flex;
+  align-items: center;
+}
+
+.left-side button {
+  margin-left: 10px;
+  border-radius: 50%;
+  padding: 10px;
+  background-color: transparent;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.left-side button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.left-side mat-icon {
+  color: white;
+  font-size: 20px;
+}
+
+button:hover mat-icon {
+  color: #ff4081;
+}

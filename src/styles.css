@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* Success Snackbar */
+.snackbar-success {
+    background-color: #4caf50 !important; /* Green background for success */
+    color: white !important; /* White text */
+    font-weight: bold;
+    border-radius: 4px; /* Rounded corners */
+  }
+  
+  /* Error Snackbar */
+  .snackbar-error {
+    background-color: #f44336 !important; /* Red background for error */
+    color: white !important; /* White text */
+    font-weight: bold;
+    border-radius: 4px; /* Rounded corners */
+  }
+  
+  /* Customize text, icons, or position further if needed */
+  .mat-snack-bar-container {
+    font-size: 16px; /* Font size for messages */
+  }
+  

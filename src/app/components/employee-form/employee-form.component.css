@@ -1,0 +1,69 @@
+
+.employee-form {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    padding: 20px;
+  }
+  .mat-card {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+  }
+  
+  .title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #3f51b5;
+  }
+  
+  .mat-form-field {
+    margin-bottom: 20px;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  
+  button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 4px;
+  }
+  
+  button[disabled] {
+    background-color: #9e9e9e;
+    cursor: not-allowed;
+  }
+  
+  button:not([disabled]) {
+    background-color: #3f51b5;
+    color: white;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  button:not([disabled]):hover {
+    background-color: #303f9f;
+  }
+  
+  mat-error {
+    font-size: 12px;
+    color: #f44336;
+  }
+
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  mat-card-content {
+    padding-bottom: 20px;
+  }
+  

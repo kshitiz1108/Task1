@@ -1,0 +1,35 @@
+<h1 mat-dialog-title>Update Employee</h1>
+<div mat-dialog-content>
+  <form [formGroup]="Updateform" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Department</mat-label>
+      <input matInput formControlName="department" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Date of Joining</mat-label>
+        <input matInput formControlName="dateOfJoining" type="date" required>
+    </mat-form-field>
+      
+
+    <mat-form-field appearance="fill">
+      <mat-label>Salary</mat-label>
+      <input matInput formControlName="salary" />
+    </mat-form-field>
+
+    <div mat-dialog-actions>
+      <button mat-button (click)="onCancel()">Cancel</button>
+      <button mat-raised-button color="primary" type="submit" [disabled]="Updateform.invalid">Update</button>
+    </div>
+  </form>
+</div>
