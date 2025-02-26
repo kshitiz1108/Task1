@@ -9,6 +9,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { JsonPipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Subscription } from 'rxjs';
+import { ToasterService } from '../../service/toaster.service';
 
 
 @Component({
@@ -22,7 +23,7 @@ export class EmployeeUpdateComponent implements OnDestroy {
 
   Updateform !:FormGroup
   
-  constructor (private http:HttpClient,private fb:FormBuilder,private matdialog : MatDialogRef<EmployeeUpdateComponent>, @Inject(MAT_DIALOG_DATA) public data: any){
+  constructor (private http:HttpClient,private fb:FormBuilder,private matdialog : MatDialogRef<EmployeeUpdateComponent>, @Inject(MAT_DIALOG_DATA) public data: any,private toasterservice:ToasterService){
 
     this.forminst();
 
@@ -57,6 +58,7 @@ export class EmployeeUpdateComponent implements OnDestroy {
       })
 
       this.matdialog.close(this.Updateddetails)
+      this.toasterservice.onSuccess("Employee Details Updated Successfullt")
   
     }
   }
