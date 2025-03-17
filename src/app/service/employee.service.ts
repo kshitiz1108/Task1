@@ -12,10 +12,11 @@ export class EmployeeService {
   constructor(private http: HttpClient) {}
 
   getEmployees(): Observable<any[]> {
+    console.log('Making HTTP request for employees');
     return this.http.get<any[]>(this.apiUrl);
   }
 
-  deleteEmployee(id: number): Observable<void> {
+  deleteEmployee(id: string): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 }

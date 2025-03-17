@@ -15,6 +15,10 @@ import { MatSliderModule } from '@angular/material/slider';
 import { Subscribable, Subscription } from 'rxjs';
 import { MatListSubheaderCssMatStyler } from '@angular/material/list';
 import { ToasterService } from '../../service/toaster.service';
+import { Store } from '@ngrx/store';
+import { addEmployee } from '../../store/actions/employee.action';
+import { v4 as uuidv4 } from 'uuid';
+import { Employee } from '../../model/employee.model';
 
 @Component({
   selector: 'app-employee-form',
@@ -27,12 +31,16 @@ import { ToasterService } from '../../service/toaster.service';
 export class EmployeeFormComponent implements OnDestroy{
   
 
-  departmentlist : any[] = []
+  departmentlist : Department[] = []
 
   employeeform!: FormGroup;
-  employeedetails: any;
+  employeedetails!: Employee;
 
-  constructor(public fb: FormBuilder,private http : HttpClient,private router : Router,private toasterservice:ToasterService) {
+  constructor(public fb: FormBuilder,
+    private http : HttpClient,
+    private router : Router,
+    private toasterservice:ToasterService,
+    private store :Store) {
     this.forminst();
     this.getdepartments();
   }
@@ -61,20 +69,30 @@ export class EmployeeFormComponent implements OnDestroy{
 
   onSubmit() {
     if (this.employeeform.valid) {
-      this.employeedetails = this.employeeform.value;
+      this.employeedetails = {
+        ...this.employeeform.value,
+        id:this.generateUniqueId()
+      }
       console.log(this.employeedetails)
       this.submitsub = this.http.post("http://localhost:3000/employees",this.employeedetails).subscribe((res:any) => {
        
         console.log(res)
       },(error) => {
+        this.store.dispatch(addEmployee.addEmployeeFailure());
         this.toasterservice.onError("Error in adding employee")
       })
+      this.store.dispatch(addEmployee.addEmployeeSuccess({payload:this.employeedetails}))
       this.router.navigate(['/'])
       this.toasterservice.onSuccess("Employee Added Successfully")
       console.log('Form submitted:', this.employeedetails);
     } else {
+      this.store.dispatch(addEmployee.addEmployeeFailure());
       console.log('Form is not valid');
     }
+  }
+
+  private generateUniqueId(): string {
+    return uuidv4().split('-')[0]; 
   }
 
   ngOnDestroy(): void {

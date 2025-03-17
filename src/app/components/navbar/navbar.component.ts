@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { EmployeeListComponent } from "../employee-list/employee-list.component";
 import { EmployeeService } from '../../service/employee.service';
+import { Employee } from '../../model/employee.model';
 
 @Component({
   selector: 'app-navbar',
@@ -41,8 +42,8 @@ export class NavbarComponent implements OnInit{
     'transition': 'background-color 0.3s ease-in-out'
   };
 
-  originalEmployeeList: any[] = [];
-  filteredEmployeeList: any[] = [];
+  originalEmployeeList: Employee[] = [];
+  filteredEmployeeList: Employee[] = [];
 
   currentUrl : string = '';
 

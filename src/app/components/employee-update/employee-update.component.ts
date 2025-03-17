@@ -10,6 +10,9 @@ import { JsonPipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Subscription } from 'rxjs';
 import { ToasterService } from '../../service/toaster.service';
+import { Employee } from '../../model/employee.model';
+import { Store } from '@ngrx/store';
+import { updateEmployee } from '../../store/actions/employee.action';
 
 
 @Component({
@@ -23,13 +26,15 @@ export class EmployeeUpdateComponent implements OnDestroy {
 
   Updateform !:FormGroup
   
-  constructor (private http:HttpClient,private fb:FormBuilder,private matdialog : MatDialogRef<EmployeeUpdateComponent>, @Inject(MAT_DIALOG_DATA) public data: any,private toasterservice:ToasterService){
+  constructor (private http:HttpClient,private fb:FormBuilder,private matdialog : MatDialogRef<EmployeeUpdateComponent>, @Inject(MAT_DIALOG_DATA) public data: any,private toasterservice:ToasterService,
+private store :Store){
 
     this.forminst();
 
   }
 
   private submitsub: Subscription = new Subscription();
+  private isSubmit = false;
 
 
 
@@ -51,9 +56,12 @@ export class EmployeeUpdateComponent implements OnDestroy {
   onSubmit(){
 
     if(this.Updateform.valid){
+
+      this.isSubmit = true; 
       this.Updateddetails = this.Updateform.getRawValue();
       console.log(this.Updateddetails)
       this.submitsub = this.http.put(`http://localhost:3000/employees/${this.data.id}`,this.Updateddetails).subscribe((res:any) => {
+        this.store.dispatch(updateEmployee.updateEmployeeSuccess({payload:res}))
         console.log(res);
       })
 
@@ -64,7 +72,9 @@ export class EmployeeUpdateComponent implements OnDestroy {
   }
 
   onCancel(){
-    this.matdialog.close();
+    if (!this.isSubmit) {
+    this.matdialog.close();  // Close dialog without sending any data
+  }
   }
 
   ngOnDestroy(): void {
